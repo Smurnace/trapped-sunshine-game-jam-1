@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://8mfj7i65jqm"]
+
+[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_arg0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slypk"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D" unique_id=695307848]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1921823240]
+modulate = Color(0.87038714, 1.4439225e-06, 1.2513996e-06, 1)
+texture = SubResource("DrawableTexture2D_arg0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=955677653]
+shape = SubResource("RectangleShape2D_slypk")
