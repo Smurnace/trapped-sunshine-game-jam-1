@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://csgqe67qec8ao"]
 
 [ext_resource type="Script" uid="uid://bmjtw5memd184" path="res://Scripts/stage_2.gd" id="1_eymn5"]
-[ext_resource type="Texture2D" uid="uid://c2ikdnnwh0a8i" path="res://Assets/parallax_ground_seamless.png" id="2_8cm1o"]
-[ext_resource type="Texture2D" uid="uid://jy5tg0g3jk6g" path="res://Assets/Dragon_Neutral.png" id="2_sr5a4"]
+[ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/Background/parallax_ground_seamless.png" id="2_8cm1o"]
+[ext_resource type="Texture2D" uid="uid://jy5tg0g3jk6g" path="res://Assets/Dragon/Dragon_Neutral.png" id="2_sr5a4"]
+[ext_resource type="Texture2D" uid="uid://dvby5hwx5bv07" path="res://Assets/Dragon/Dragon_Hurt.png" id="4_qi0mb"]
+[ext_resource type="Texture2D" uid="uid://cukncg8jy1els" path="res://Assets/Dragon/Dragon_fail state.png" id="5_dv24l"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_pbw6q"]
 
@@ -17,14 +19,19 @@ script = ExtResource("1_eymn5")
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 513.0
-texture = ExtResource("2_8cm1o")
+
+[node name="DragonNeutral" type="Sprite2D" parent="." unique_id=235815423]
+visibility_layer = 3
+z_as_relative = false
+position = Vector2(775, 275)
+texture = ExtResource("2_sr5a4")
 
 [node name="DragonSprite" type="TextureRect" parent="." unique_id=137083874]
 layout_mode = 0
-offset_left = 400.00003
-offset_top = 117.00001
-offset_right = 689.22974
-offset_bottom = 261.61484
+offset_left = -630.00006
+offset_top = 112.00001
+offset_right = -340.77036
+offset_bottom = 256.61484
 scale = Vector2(2.7619047, 2.60001)
 texture = ExtResource("2_sr5a4")
 expand_mode = 1
@@ -51,11 +58,19 @@ mouse_filter = 0
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1931432037]
+z_as_relative = false
 layout_mode = 0
 offset_left = 284.0
 offset_top = 27.0
 offset_right = 746.0
 offset_bottom = 54.0
+
+[node name="ResultLabel" type="Label" parent="." unique_id=779564269]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 244.0
+offset_right = 605.0
+offset_bottom = 267.0
 
 [node name="TimerLabel" type="Label" parent="." unique_id=825041296]
 layout_mode = 0
@@ -64,9 +79,22 @@ offset_top = 59.0
 offset_right = 530.0
 offset_bottom = 82.0
 
-[node name="ResultLabel" type="Label" parent="." unique_id=779564269]
+[node name="DragonHurt" type="Sprite2D" parent="." unique_id=619345796]
+position = Vector2(2234, 300)
+texture = ExtResource("4_qi0mb")
+
+[node name="DragonFailState" type="Sprite2D" parent="." unique_id=1953336144]
+position = Vector2(2917, 300)
+texture = ExtResource("5_dv24l")
+
+[node name="PlayersText" type="TextEdit" parent="." unique_id=1960373188]
 layout_mode = 0
-offset_left = 415.0
-offset_top = 244.0
-offset_right = 605.0
-offset_bottom = 267.0
+offset_left = 82.0
+offset_top = 415.0
+offset_right = 228.0
+offset_bottom = 452.0
+text = "Players"
+
+[node name="ParallaxGroundSeamless" type="Sprite2D" parent="." unique_id=66207724]
+position = Vector2(512, 256)
+texture = ExtResource("2_8cm1o")

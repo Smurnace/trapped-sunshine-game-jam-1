@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6o5bhh7c7u8h"
-path="res://.godot/imported/parallax_ground_seamless.png-7c91ea67b6d20ca5d8dac147dee0e8eb.ctex"
+uid="uid://dvby5hwx5bv07"
+path="res://.godot/imported/Dragon_Hurt.png-e9834fb817bbcf32e2d9554daac0901e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/parallax_ground_seamless.png"
-dest_files=["res://.godot/imported/parallax_ground_seamless.png-7c91ea67b6d20ca5d8dac147dee0e8eb.ctex"]
+source_file="res://Assets/Dragon/Dragon_Hurt.png"
+dest_files=["res://.godot/imported/Dragon_Hurt.png-e9834fb817bbcf32e2d9554daac0901e.ctex"]
 
 [params]
 

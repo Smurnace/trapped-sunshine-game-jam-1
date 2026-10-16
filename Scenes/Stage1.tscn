@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://enasi4obub0k" path="res://Scripts/stage_1.gd" id="1_ert0p"]
 [ext_resource type="PackedScene" uid="uid://5pkq3yeene5a" path="res://Player.tscn" id="2_plk55"]
-[ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/parallax_ground_seamless.png" id="3_o6145"]
+[ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/Background/parallax_ground_seamless.png" id="3_o6145"]
 [ext_resource type="PackedScene" uid="uid://dc3mva6apku27" path="res://Fireball.tscn" id="3_plk55"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plk55"]
