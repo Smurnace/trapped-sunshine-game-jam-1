@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://5pkq3yeene5a"]
+
+[ext_resource type="Script" uid="uid://8w7rh06e71to" path="res://Scripts/player.gd" id="1_xhfnw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kpjcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
+size = Vector2(14, 25)
+
+[sub_resource type="Animation" id="Animation_xhfnw"]
+resource_name = "hit_effect"
+length = 1.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpjcp"]
+_data = {
+&"hit_effect": SubResource("Animation_xhfnw")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=681076191]
+script = ExtResource("1_xhfnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935895130]
+position = Vector2(-4.7683716e-07, 0.50000095)
+scale = Vector2(14.000001, 24.999998)
+texture = SubResource("CanvasTexture_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066024184]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_kne1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=505914904]
+libraries/ = SubResource("AnimationLibrary_kpjcp")

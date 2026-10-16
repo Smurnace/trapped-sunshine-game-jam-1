@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dc3mva6apku27"]
+
+[ext_resource type="Script" uid="uid://cmbbh4ace1kg5" path="res://Scripts/fireball.gd" id="1_yn1k2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_llehy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slypk"]
+radius = 5.0990195
+
+[node name="fireball" type="Area2D" unique_id=317172113]
+script = ExtResource("1_yn1k2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1468381723]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(3.2499998, 3.2499998)
+scale = Vector2(11.499998, 11.499998)
+texture = SubResource("PlaceholderTexture2D_llehy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2082647162]
+position = Vector2(3, 3)
+shape = SubResource("CircleShape2D_slypk")
+debug_color = Color(0.92629945, 2.7193873e-06, 3.85046e-07, 0.41960785)

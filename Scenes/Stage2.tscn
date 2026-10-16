@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://csgqe67qec8ao"]
+
+[ext_resource type="Script" uid="uid://bmjtw5memd184" path="res://Scripts/stage_2.gd" id="1_eymn5"]
+[ext_resource type="Texture2D" uid="uid://c2ikdnnwh0a8i" path="res://Assets/parallax_ground_seamless.png" id="2_8cm1o"]
+[ext_resource type="Texture2D" uid="uid://jy5tg0g3jk6g" path="res://Assets/Dragon_Neutral.png" id="2_sr5a4"]
+
+[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_pbw6q"]
+
+[node name="Stage2" type="Control" unique_id=1767944747]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eymn5")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1240726749]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 513.0
+texture = ExtResource("2_8cm1o")
+
+[node name="DragonSprite" type="TextureRect" parent="." unique_id=137083874]
+layout_mode = 0
+offset_left = 400.00003
+offset_top = 117.00001
+offset_right = 689.22974
+offset_bottom = 261.61484
+scale = Vector2(2.7619047, 2.60001)
+texture = ExtResource("2_sr5a4")
+expand_mode = 1
+
+[node name="PlayerSprite" type="TextureRect" parent="." unique_id=1621708225]
+modulate = Color(0.16924527, 0.1692453, 0.16924527, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 348.00003
+offset_right = 106.0
+offset_bottom = 412.00003
+scale = Vector2(4.080001, 2.1599975)
+texture = SubResource("DrawableTexture2D_pbw6q")
+
+[node name="InstructionLabel" type="Label" parent="." unique_id=389770928]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 213.0
+offset_right = 625.0
+offset_bottom = 252.0
+tooltip_text = "
+"
+mouse_filter = 0
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1931432037]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 27.0
+offset_right = 746.0
+offset_bottom = 54.0
+
+[node name="TimerLabel" type="Label" parent="." unique_id=825041296]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 59.0
+offset_right = 530.0
+offset_bottom = 82.0
+
+[node name="ResultLabel" type="Label" parent="." unique_id=779564269]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 244.0
+offset_right = 605.0
+offset_bottom = 267.0

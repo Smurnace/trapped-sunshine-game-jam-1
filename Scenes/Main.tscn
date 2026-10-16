@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bdyigy4fvbvtr"]
+
+[ext_resource type="Script" uid="uid://dw82afdiu8pca" path="res://Scenes/main.gd" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://day13wm33n6ws" path="res://Scenes/Stage1.tscn" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://csgqe67qec8ao" path="res://Scenes/Stage2.tscn" id="3_rgh2o"]
+
+[node name="Main" type="Node" unique_id=63700952]
+script = ExtResource("1_r150o")
+stage1_scene = ExtResource("2_kln2b")
+stage2_scene = ExtResource("3_rgh2o")

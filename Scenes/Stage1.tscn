@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://day13wm33n6ws"]
+
+[ext_resource type="Script" uid="uid://enasi4obub0k" path="res://Scripts/stage_1.gd" id="1_ert0p"]
+[ext_resource type="PackedScene" uid="uid://5pkq3yeene5a" path="res://Player.tscn" id="2_plk55"]
+[ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/parallax_ground_seamless.png" id="3_o6145"]
+[ext_resource type="PackedScene" uid="uid://dc3mva6apku27" path="res://Fireball.tscn" id="3_plk55"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_plk55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6145"]
+size = Vector2(701, 5)
+
+[node name="Stage1" type="Node2D" unique_id=98268360]
+script = ExtResource("1_ert0p")
+fireball_scene = ExtResource("3_plk55")
+speed_increase = 200.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1845033654]
+offset_left = -2.0
+offset_top = 318.0
+offset_right = 1023.0
+offset_bottom = 551.67316
+texture = ExtResource("3_o6145")
+expand_mode = 1
+
+[node name="Fireball" parent="." unique_id=317172113 instance=ExtResource("3_plk55")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1525204669]
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=1591251684]
+offset_left = 456.0
+offset_top = 1.0
+offset_right = 624.0
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_plk55")
+
+[node name="Players" type="Node2D" parent="." unique_id=1751196179]
+
+[node name="Player1" parent="Players" unique_id=681076191 instance=ExtResource("2_plk55")]
+modulate = Color(0.81960785, 0.48235294, 0.047058824, 1)
+position = Vector2(71, 493)
+
+[node name="Player2" parent="Players" unique_id=927311572 instance=ExtResource("2_plk55")]
+modulate = Color(0.26666668, 0.49019608, 0.49019608, 1)
+position = Vector2(71, 371)
+jump_action = "jump_p2"
+mash_action = "mash_p2"
+
+[node name="Player3" parent="Players" unique_id=861841715 instance=ExtResource("2_plk55")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(71, 242)
+jump_action = "jump_p3"
+mash_action = "mash_p3"
+
+[node name="Player4" parent="Players" unique_id=901888917 instance=ExtResource("2_plk55")]
+modulate = Color(1.1310726e-06, 0.63421637, 9.62615e-07, 1)
+position = Vector2(71, 115)
+jump_action = "jump_p4"
+mash_action = "mash_p4"
+
+[node name="Floor1" type="StaticBody2D" parent="." unique_id=188822895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor1" unique_id=850866098]
+position = Vector2(351, 509)
+shape = SubResource("RectangleShape2D_o6145")
+
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=2142813311]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=1950469914]
+position = Vector2(351, 387)
+shape = SubResource("RectangleShape2D_o6145")
+
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=579248043]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=810110477]
+position = Vector2(351, 259)
+shape = SubResource("RectangleShape2D_o6145")
+
+[node name="Floor4" type="StaticBody2D" parent="." unique_id=846742197]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=1377237858]
+position = Vector2(351, 131)
+shape = SubResource("RectangleShape2D_o6145")
