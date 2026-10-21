@@ -1,4 +1,3 @@
-
 extends Node2D
 
 signal stage_complete(surviving_actions: Array[String])
@@ -63,7 +62,7 @@ func _process(delta: float) -> void:
 	# Stage complete
 	if elapsed >= survival_time:
 		finished = true
-		stage_complete.emit(get_surviving_actions())
+		play_transition()
 
 func spawn_fireball(lane_y: float, current_speed: float) -> void:
 	print("Fireball scene: ", fireball_scene)
@@ -91,5 +90,15 @@ func get_surviving_actions() -> Array[String]:
 	return actions
 	
 
-	finished = true
-	stage_failed.emit()
+func play_transition() -> void:
+	var overlay: ColorRect = $HUD/TransitionOverlay
+
+	overlay.visible = true
+	overlay.color = Color(0, 0, 0, 0)
+
+	var tween = create_tween()
+	tween.tween_property(overlay, "color:a", 1.0, 0.5)
+
+	await tween.finished
+
+	stage_complete.emit(get_surviving_actions())

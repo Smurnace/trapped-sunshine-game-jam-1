@@ -1,4 +1,3 @@
-
 extends Node
 
 @export var stage1_scene: PackedScene

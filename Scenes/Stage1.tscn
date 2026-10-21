@@ -13,6 +13,7 @@ size = Vector2(701, 5)
 [node name="Stage1" type="Node2D" unique_id=98268360]
 script = ExtResource("1_ert0p")
 fireball_scene = ExtResource("3_plk55")
+survival_time = 5.0
 speed_increase = 200.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1845033654]
@@ -33,6 +34,11 @@ offset_top = 1.0
 offset_right = 624.0
 offset_bottom = 64.0
 label_settings = SubResource("LabelSettings_plk55")
+
+[node name="TransitionOverlay" type="ColorRect" parent="HUD" unique_id=1756036584]
+offset_right = 1024.0
+offset_bottom = 550.0
+color = Color(1, 1, 1, 0)
 
 [node name="Players" type="Node2D" parent="." unique_id=1751196179]
 
