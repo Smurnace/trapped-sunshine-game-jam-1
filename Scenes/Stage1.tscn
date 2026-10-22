@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://enasi4obub0k" path="res://Scripts/stage_1.gd" id="1_ert0p"]
 [ext_resource type="PackedScene" uid="uid://5pkq3yeene5a" path="res://Player.tscn" id="2_plk55"]
+[ext_resource type="Texture2D" uid="uid://c0y8ceg7b8wmr" path="res://Assets/Background/Seamless_sky.png" id="3_b22km"]
 [ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/Background/parallax_ground_seamless.png" id="3_o6145"]
 [ext_resource type="PackedScene" uid="uid://dc3mva6apku27" path="res://Fireball.tscn" id="3_plk55"]
+[ext_resource type="Texture2D" uid="uid://roya0vuxvuya" path="res://Assets/Background/Cloud_1.png" id="4_ve6er"]
+[ext_resource type="Texture2D" uid="uid://c77gxkn0v5tmf" path="res://Assets/Background/Cloud_2.png" id="5_h4a3m"]
+[ext_resource type="Texture2D" uid="uid://cggfeckudn50u" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint1.png" id="5_h8ev4"]
+[ext_resource type="Texture2D" uid="uid://debsvlgxcb4jp" path="res://Assets/Player/P2_Blue/Blue_chara_Sprint1.png" id="6_nn7tr"]
+[ext_resource type="Texture2D" uid="uid://dqwm3o4sw0w8d" path="res://Assets/Player/P3_Red/Red_chara_Sprint1.png" id="7_nn7tr"]
+[ext_resource type="Texture2D" uid="uid://c1wn018jfnj54" path="res://Assets/Player/P4_Green/Green_chara_Sprint1.png" id="8_wawdp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plk55"]
 
@@ -13,8 +20,32 @@ size = Vector2(701, 5)
 [node name="Stage1" type="Node2D" unique_id=98268360]
 script = ExtResource("1_ert0p")
 fireball_scene = ExtResource("3_plk55")
-survival_time = 5.0
+survival_time = 10.0
 speed_increase = 200.0
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=527844473]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1025.0
+offset_bottom = 513.0
+texture = ExtResource("3_b22km")
+expand_mode = 1
+
+[node name="Cloud1" type="TextureRect" parent="." unique_id=1455297655]
+offset_left = 182.0
+offset_top = -82.0
+offset_right = 1206.0
+offset_bottom = 430.0
+texture = ExtResource("4_ve6er")
+expand_mode = 1
+
+[node name="Cloud2" type="TextureRect" parent="." unique_id=916429777]
+offset_left = -391.0
+offset_top = -36.0
+offset_right = 633.0
+offset_bottom = 476.0
+texture = ExtResource("5_h4a3m")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1845033654]
 offset_left = -2.0
@@ -35,6 +66,46 @@ offset_right = 624.0
 offset_bottom = 64.0
 label_settings = SubResource("LabelSettings_plk55")
 
+[node name="CountdownLabel" type="Label" parent="HUD" unique_id=819313537]
+offset_left = 456.0
+offset_top = 1.0
+offset_right = 496.0
+offset_bottom = 24.0
+
+[node name="JoinLabels" type="Label" parent="HUD" unique_id=1570686266]
+offset_left = 513.0
+offset_top = 259.0
+offset_right = 553.0
+offset_bottom = 282.0
+
+[node name="P1JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=1973676260]
+layout_mode = 0
+offset_left = -162.0
+offset_top = 199.0
+offset_right = -122.0
+offset_bottom = 222.0
+
+[node name="P2JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=1975103866]
+layout_mode = 0
+offset_left = -162.0
+offset_top = 59.0
+offset_right = -122.0
+offset_bottom = 82.0
+
+[node name="P3JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=1175868314]
+layout_mode = 0
+offset_left = -162.0
+offset_top = -52.0
+offset_right = -122.0
+offset_bottom = -29.0
+
+[node name="P4JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=2120530390]
+layout_mode = 0
+offset_left = -162.0
+offset_top = -195.0
+offset_right = -122.0
+offset_bottom = -172.0
+
 [node name="TransitionOverlay" type="ColorRect" parent="HUD" unique_id=1756036584]
 offset_right = 1024.0
 offset_bottom = 550.0
@@ -43,26 +114,30 @@ color = Color(1, 1, 1, 0)
 [node name="Players" type="Node2D" parent="." unique_id=1751196179]
 
 [node name="Player1" parent="Players" unique_id=681076191 instance=ExtResource("2_plk55")]
-modulate = Color(0.81960785, 0.48235294, 0.047058824, 1)
 position = Vector2(71, 493)
+gravity = 1300.0
+player_texture = ExtResource("5_h8ev4")
 
 [node name="Player2" parent="Players" unique_id=927311572 instance=ExtResource("2_plk55")]
-modulate = Color(0.26666668, 0.49019608, 0.49019608, 1)
 position = Vector2(71, 371)
 jump_action = "jump_p2"
 mash_action = "mash_p2"
+player_texture = ExtResource("6_nn7tr")
 
 [node name="Player3" parent="Players" unique_id=861841715 instance=ExtResource("2_plk55")]
-modulate = Color(1, 0, 1, 1)
 position = Vector2(71, 242)
 jump_action = "jump_p3"
 mash_action = "mash_p3"
+player_texture = ExtResource("7_nn7tr")
 
 [node name="Player4" parent="Players" unique_id=901888917 instance=ExtResource("2_plk55")]
-modulate = Color(1.1310726e-06, 0.63421637, 9.62615e-07, 1)
 position = Vector2(71, 115)
 jump_action = "jump_p4"
 mash_action = "mash_p4"
+player_texture = ExtResource("8_wawdp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=702929624]
+position = Vector2(513, 259)
 
 [node name="Floor1" type="StaticBody2D" parent="." unique_id=188822895]
 

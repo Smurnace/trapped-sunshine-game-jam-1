@@ -1,8 +1,11 @@
 
 extends Control
 
-signal victory
-signal failure
+# Emitted when the players defeat the dragon.
+signal stage_won
+
+# Emitted when the players fail to defeat the dragon.
+signal stage_lost
 
 @export var battle_time: float = 10.0
 @export var mash_per_press: float = 10.0
@@ -46,10 +49,10 @@ func _process(delta: float) -> void:
 
 		if progress_bar.value >= 100.0:
 			result_label.text = "THE DRAGON IS DEFEATED!"
-			victory.emit()
+			stage_won.emit()
 		else:
 			result_label.text = "THE PARTY HAS FALLEN!"
-			failure.emit()
+			stage_lost.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if finished:
@@ -65,7 +68,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if progress_bar.value >= 100.0:
 				finished = true
 				result_label.text = "THE DRAGON IS DEFEATED!"
-				victory.emit()
+				stage_won.emit()
 
 			get_viewport().set_input_as_handled()
 			return

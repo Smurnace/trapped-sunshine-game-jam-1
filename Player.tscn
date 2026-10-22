@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://5pkq3yeene5a"]
 
 [ext_resource type="Script" uid="uid://8w7rh06e71to" path="res://Scripts/player.gd" id="1_xhfnw"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://cggfeckudn50u" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint1.png" id="2_kpjcp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
 size = Vector2(14, 25)
@@ -18,15 +17,26 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=681076191]
 script = ExtResource("1_xhfnw")
+jump_strength = -300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=935895130]
-position = Vector2(-4.7683716e-07, 0.50000095)
-scale = Vector2(14.000001, 24.999998)
-texture = SubResource("CanvasTexture_kpjcp")
+position = Vector2(-9, -1.999999)
+scale = Vector2(0.13061523, 0.13061523)
+texture = ExtResource("2_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066024184]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_kne1u")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=505914904]
 libraries/ = SubResource("AnimationLibrary_kpjcp")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1665333974]
+offset_left = -25.0
+offset_top = -51.0
+offset_right = 25.0
+offset_bottom = -24.0
+max_value = 3.0
+value = 3.0
+show_percentage = false
