@@ -11,11 +11,11 @@ signal stage_failed
 
 @export var lane_spawn_intervals: Array[float] = [1.8, 1.5, 1.3, 1.6]
 
-var lane_fireball_y: Array[float] = [112.0, 240.0, 368.0, 496.0]
+var lane_fireball_y: Array[float] = [100.0, 230.0, 360.0, 490.0]
 
 @onready var players: Node2D = $Players
-@onready var timer_label: Label = $HUD/TimerLabel
-@onready var countdown_label: Label = $HUD/CountdownLabel
+@onready var timer_label: Label = $HUD/TimerPanel/TimerLabel
+@onready var countdown_label: Label = $HUD/TimerPanel/CountdownLabel
 
 @export var countdown_duration: float = 5.0
 var countdown_remaining: float = 5.0
@@ -210,7 +210,7 @@ func update_join_labels() -> void:
 
 		if not player.alive:
 
-			label.text = "ELIMINATED"
+			label.text = "DOWNED"
 			label.show()
 
 		elif player.joined:

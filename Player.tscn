@@ -40,3 +40,13 @@ offset_bottom = -24.0
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="DownedLabel" type="Label" parent="." unique_id=290763896]
+visible = false
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 272.0
+offset_bottom = -25.0
+theme_override_font_sizes/font_size = 14
+text = "Downed! Mash BUTTON to revive!"
+horizontal_alignment = 1
