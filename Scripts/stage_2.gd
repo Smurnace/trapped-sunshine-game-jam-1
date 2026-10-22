@@ -19,6 +19,7 @@ signal stage_lost
 @onready var result_label: Label = $ResultLabel
 @onready var dragon: RigidBody2D = $Dragon
 
+
 var elapsed: float = 0.0
 var finished: bool = false
 
@@ -75,8 +76,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			)
 			dragon.hurt()
 
-			if progress_bar.value >= 100.0:
+			if progress_bar.value >= 100.0 and not finished:
 				finished = true
+				dragon.die()
+				await get_tree().create_timer(1.0).timeout
 				result_label.text = "THE DRAGON IS DEFEATED!"
 				stage_won.emit()
 				# Restart the game

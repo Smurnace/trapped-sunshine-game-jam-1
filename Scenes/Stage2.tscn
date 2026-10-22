@@ -131,7 +131,7 @@ texture = ExtResource("5_3cdj1")
 metadata/_edit_lock_ = true
 
 [node name="Dragon" parent="." unique_id=1354092290 instance=ExtResource("6_g3fr0")]
-position = Vector2(820, 308)
+position = Vector2(831, 308)
 
 [node name="InstructionLabel" type="Label" parent="." unique_id=389770928]
 layout_mode = 0

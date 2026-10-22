@@ -10,3 +10,9 @@ func attack():
 	
 func reset():
 	animation_player.play("RESET")
+
+func die():
+	animation_player.play("Die")
+	
+func _ready() -> void:
+	reset()
