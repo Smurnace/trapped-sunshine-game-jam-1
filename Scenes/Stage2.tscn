@@ -1,12 +1,136 @@
 [gd_scene format=3 uid="uid://csgqe67qec8ao"]
 
 [ext_resource type="Script" uid="uid://bmjtw5memd184" path="res://Scripts/stage_2.gd" id="1_eymn5"]
-[ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/Background/parallax_ground_seamless.png" id="2_8cm1o"]
 [ext_resource type="Texture2D" uid="uid://jy5tg0g3jk6g" path="res://Assets/Dragon/Dragon_Neutral.png" id="2_sr5a4"]
+[ext_resource type="Texture2D" uid="uid://c0y8ceg7b8wmr" path="res://Assets/Background/Seamless_sky.png" id="2_veb12"]
+[ext_resource type="Texture2D" uid="uid://c77gxkn0v5tmf" path="res://Assets/Background/Cloud_2.png" id="3_flcf0"]
+[ext_resource type="Texture2D" uid="uid://roya0vuxvuya" path="res://Assets/Background/Cloud_1.png" id="4_ouruc"]
 [ext_resource type="Texture2D" uid="uid://dvby5hwx5bv07" path="res://Assets/Dragon/Dragon_Hurt.png" id="4_qi0mb"]
+[ext_resource type="Texture2D" uid="uid://dai1pliqfispd" path="res://Assets/Background/parallax_ground_scorched_seamless.png" id="5_3cdj1"]
 [ext_resource type="Texture2D" uid="uid://cukncg8jy1els" path="res://Assets/Dragon/Dragon_fail state.png" id="5_dv24l"]
+[ext_resource type="PackedScene" uid="uid://5pkq3yeene5a" path="res://Player.tscn" id="7_xumby"]
+[ext_resource type="Texture2D" uid="uid://dbx8tlp4y0t04" path="res://Assets/Player/P1_Yellow/Yellow_chara_Slash2.png" id="11_f05v4"]
+[ext_resource type="Texture2D" uid="uid://b5iblpyebts1k" path="res://Assets/Player/P1_Yellow/Yellow_chara_Slash1.png" id="12_n6yw1"]
+[ext_resource type="Texture2D" uid="uid://cn028nixj14yt" path="res://Assets/Player/P2_Blue/Blue_chara_Slash2.png" id="13_ujsqn"]
+[ext_resource type="Texture2D" uid="uid://c5e5tlpuel80l" path="res://Assets/Player/P2_Blue/Blue_chara_Slash1.png" id="14_c5op1"]
+[ext_resource type="Texture2D" uid="uid://cswt3pr1nek1t" path="res://Assets/Player/P3_Red/Red_chara_Slash2.png" id="15_vtq4t"]
+[ext_resource type="Texture2D" uid="uid://cky5rgbgl5rgm" path="res://Assets/Player/P3_Red/Red_chara_Slash1.png" id="16_c5a8g"]
+[ext_resource type="Texture2D" uid="uid://cb85awrg2opdh" path="res://Assets/Player/P4_Green/Green_chara_Slash2.png" id="17_glq4p"]
+[ext_resource type="Texture2D" uid="uid://sx7qhmffkr86" path="res://Assets/Player/P4_Green/Green_chara_Slash1.png" id="18_yb6b7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hlbqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sr5a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dv24l")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sr5a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qi0mb")
+}],
+"loop": 1,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sr5a4")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlbqa"]
+size = Vector2(621, 367)
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_pbw6q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yn8ur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_f05v4")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_n6yw1")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yxnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ujsqn")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_c5op1")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbbk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_vtq4t")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_c5a8g")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15hl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_glq4p")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_yb6b7")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Stage2" type="Control" unique_id=1767944747]
 layout_mode = 3
@@ -19,32 +143,45 @@ script = ExtResource("1_eymn5")
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 513.0
+metadata/_edit_lock_ = true
 
-[node name="DragonNeutral" type="Sprite2D" parent="." unique_id=235815423]
-visibility_layer = 3
-z_as_relative = false
-position = Vector2(775, 275)
-texture = ExtResource("2_sr5a4")
+[node name="SeamlessSky" type="Sprite2D" parent="BackGround" unique_id=1599861018]
+position = Vector2(512, 256)
+texture = ExtResource("2_veb12")
+metadata/_edit_lock_ = true
 
-[node name="DragonSprite" type="TextureRect" parent="." unique_id=137083874]
-layout_mode = 0
-offset_left = -630.00006
-offset_top = 112.00001
-offset_right = -340.77036
-offset_bottom = 256.61484
-scale = Vector2(2.7619047, 2.60001)
-texture = ExtResource("2_sr5a4")
-expand_mode = 1
+[node name="Cloud2" type="Sprite2D" parent="BackGround" unique_id=1504986657]
+position = Vector2(189, 199)
+scale = Vector2(0.987793, 0.987793)
+texture = ExtResource("3_flcf0")
+metadata/_edit_lock_ = true
 
-[node name="PlayerSprite" type="TextureRect" parent="." unique_id=1621708225]
-modulate = Color(0.16924527, 0.1692453, 0.16924527, 1)
-layout_mode = 0
-offset_left = 42.0
-offset_top = 348.00003
-offset_right = 106.0
-offset_bottom = 412.00003
-scale = Vector2(4.080001, 2.1599975)
-texture = SubResource("DrawableTexture2D_pbw6q")
+[node name="Cloud1" type="Sprite2D" parent="BackGround" unique_id=1879998542]
+position = Vector2(771.00006, 145.00002)
+scale = Vector2(0.7319336, 0.7319336)
+texture = ExtResource("4_ouruc")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxGroundSeamless" type="Sprite2D" parent="BackGround" unique_id=66207724]
+position = Vector2(512, 256)
+texture = ExtResource("5_3cdj1")
+metadata/_edit_lock_ = true
+
+[node name="Dragon" type="RigidBody2D" parent="." unique_id=1035644144]
+gravity_scale = 0.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Dragon" unique_id=2075446997]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dragon" unique_id=1939844932]
+position = Vector2(871, 302)
+sprite_frames = SubResource("SpriteFrames_hlbqa")
+animation = &"Idle"
+frame_progress = 0.68456227
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dragon" unique_id=2090227705]
+visible = false
+position = Vector2(712, 260)
+shape = SubResource("RectangleShape2D_hlbqa")
 
 [node name="InstructionLabel" type="Label" parent="." unique_id=389770928]
 layout_mode = 0
@@ -65,13 +202,6 @@ offset_top = 27.0
 offset_right = 746.0
 offset_bottom = 54.0
 
-[node name="ResultLabel" type="Label" parent="." unique_id=779564269]
-layout_mode = 0
-offset_left = 415.0
-offset_top = 244.0
-offset_right = 605.0
-offset_bottom = 267.0
-
 [node name="TimerLabel" type="Label" parent="." unique_id=825041296]
 layout_mode = 0
 offset_left = 490.0
@@ -79,22 +209,76 @@ offset_top = 59.0
 offset_right = 530.0
 offset_bottom = 82.0
 
-[node name="DragonHurt" type="Sprite2D" parent="." unique_id=619345796]
-position = Vector2(2234, 300)
-texture = ExtResource("4_qi0mb")
+[node name="ResultLabel" type="Label" parent="." unique_id=779564269]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 244.0
+offset_right = 605.0
+offset_bottom = 267.0
 
-[node name="DragonFailState" type="Sprite2D" parent="." unique_id=1953336144]
-position = Vector2(2917, 300)
-texture = ExtResource("5_dv24l")
+[node name="PlayerSprite" type="TextureRect" parent="." unique_id=1621708225]
+modulate = Color(0.16862746, 0.16862746, 0.16862746, 0.61960787)
+layout_mode = 0
+offset_top = 334.0
+offset_right = 120.833305
+offset_bottom = 416.51855
+scale = Vector2(4.080001, 2.1599975)
+texture = SubResource("DrawableTexture2D_pbw6q")
 
 [node name="PlayersText" type="TextEdit" parent="." unique_id=1960373188]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 415.0
-offset_right = 228.0
-offset_bottom = 452.0
+offset_left = 88.0
+offset_top = 293.45
+offset_right = 234.0
+offset_bottom = 330.45
 text = "Players"
 
-[node name="ParallaxGroundSeamless" type="Sprite2D" parent="." unique_id=66207724]
-position = Vector2(512, 256)
-texture = ExtResource("2_8cm1o")
+[node name="Players" type="Node2D" parent="." unique_id=1739870049]
+
+[node name="Player1" parent="Players" unique_id=681076191 instance=ExtResource("7_xumby")]
+position = Vector2(400, 475.5)
+scale = Vector2(1.58, 1.58)
+script = null
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player1" unique_id=1120980077]
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yn8ur")
+animation = &"Idle"
+
+[node name="Player2" parent="Players" unique_id=476913854 instance=ExtResource("7_xumby")]
+position = Vector2(280, 475.5)
+scale = Vector2(1.58, 1.58)
+script = null
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player2" unique_id=685103698]
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3yxnq")
+animation = &"Idle"
+
+[node name="Player3" parent="Players" unique_id=1805106433 instance=ExtResource("7_xumby")]
+position = Vector2(160, 475.5)
+scale = Vector2(1.58, 1.58)
+script = null
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player3" unique_id=640344077]
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gbbk2")
+animation = &"Idle"
+
+[node name="Player4" parent="Players" unique_id=273219499 instance=ExtResource("7_xumby")]
+position = Vector2(40, 475.5)
+scale = Vector2(1.58, 1.58)
+script = null
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player4" unique_id=868096200]
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_15hl4")
+animation = &"Idle"

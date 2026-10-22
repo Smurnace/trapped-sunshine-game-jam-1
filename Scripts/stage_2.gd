@@ -5,7 +5,7 @@ signal victory
 signal failure
 
 @export var battle_time: float = 10.0
-@export var mash_per_press: float = 1.0
+@export var mash_per_press: float = 10.0
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var timer_label: Label = $TimerLabel
