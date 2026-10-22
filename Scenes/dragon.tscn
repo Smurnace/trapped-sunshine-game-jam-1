@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://b31i6uu0fc88c"]
+
+[ext_resource type="Texture2D" uid="uid://jy5tg0g3jk6g" path="res://Assets/Dragon/Dragon_Neutral.png" id="1_d8ryr"]
+[ext_resource type="Script" uid="uid://df7ssrr1usmjg" path="res://Scenes/dragon.gd" id="1_gfnx5"]
+[ext_resource type="Texture2D" uid="uid://cukncg8jy1els" path="res://Assets/Dragon/Dragon_fail state.png" id="2_gfnx5"]
+[ext_resource type="Texture2D" uid="uid://dvby5hwx5bv07" path="res://Assets/Dragon/Dragon_Hurt.png" id="3_5gcdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlbqa"]
+size = Vector2(621, 367)
+
+[sub_resource type="Animation" id="Animation_gfnx5"]
+resource_name = "Attack"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_gfnx5")]
+}
+
+[sub_resource type="Animation" id="Animation_d8ryr"]
+resource_name = "Hurt"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_5gcdv")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5gcdv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_d8ryr")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gfnx5"]
+_data = {
+&"Attack": SubResource("Animation_gfnx5"),
+&"Hurt": SubResource("Animation_d8ryr"),
+&"RESET": SubResource("Animation_5gcdv")
+}
+
+[node name="Dragon" type="RigidBody2D" unique_id=1354092290]
+gravity_scale = 0.0
+script = ExtResource("1_gfnx5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2065093091]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474499164]
+visible = false
+position = Vector2(712, 260)
+shape = SubResource("RectangleShape2D_hlbqa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2004141930]
+libraries/ = SubResource("AnimationLibrary_gfnx5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319026970]
+texture = ExtResource("1_d8ryr")

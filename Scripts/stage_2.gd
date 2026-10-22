@@ -17,6 +17,7 @@ signal stage_lost
 @onready var timer_label: Label = $TimerLabel
 @onready var instruction_label: Label = $InstructionLabel
 @onready var result_label: Label = $ResultLabel
+@onready var dragon: RigidBody2D = $Dragon
 
 var elapsed: float = 0.0
 var finished: bool = false
@@ -54,6 +55,8 @@ func _process(delta: float) -> void:
 			result_label.text = "THE DRAGON IS DEFEATED!"
 			stage_won.emit()
 		else:
+			dragon.attack()
+			await get_tree().create_timer(1.0).timeout
 			result_label.text = "THE PARTY HAS FALLEN!"
 			stage_lost.emit()
 			
@@ -70,6 +73,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				progress_bar.value + mash_per_press,
 				100.0
 			)
+			dragon.hurt()
 
 			if progress_bar.value >= 100.0:
 				finished = true
