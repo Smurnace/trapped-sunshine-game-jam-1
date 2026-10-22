@@ -240,8 +240,9 @@ func update_gameplay(delta: float) -> void:
 	if elapsed >= survival_time:
 
 		finished = true
-
 		play_transition()
+
+
 		return
 
 	# Increase fireball speed over time.
@@ -263,91 +264,31 @@ func update_gameplay(delta: float) -> void:
 				lane_fireball_y[i],
 				current_speed
 			)
-	
+			
 func play_transition() -> void:
-
-	# Find all surviving players.
-	var survivors: Array[Node] = []
-
+	# Stop players from moving during the transition.
 	for player in players.get_children():
-
-		if player.alive and player.joined:
-
-			survivors.append(player)
-
-	# If nobody survived, restart.
-	if survivors.is_empty():
-
-		stage_failed.emit()
-		return
-
-	# Freeze all player movement.
-	for player in players.get_children():
-
 		player.can_move = false
 
-	# Stop existing fireballs from interfering
-	# with the cinematic transition.
-	for child in get_children():
+	# Stop the background scrolling, if applicable.
+	if has_node("Background"):
+		$Background.scrolling_enabled = false
 
-		if child is Area2D:
-			child.queue_free()
-
-	# Calculate the centre of the survivors.
-	var centre := Vector2.ZERO
-
-	for player in survivors:
-
-		centre += player.global_position
-
-	centre /= survivors.size()
-
-	# Animate camera movement and zoom.
-	var camera_tween := create_tween()
-
-	camera_tween.set_parallel(true)
-
-	camera_tween.tween_property(
-		camera,
-		"global_position",
-		centre,
-		0.8
-	).set_trans(
-		Tween.TRANS_CUBIC
-	).set_ease(
-		Tween.EASE_IN_OUT
-	)
-
-	camera_tween.tween_property(
-		camera,
-		"zoom",
-		Vector2(1.8, 1.8),
-		0.8
-	).set_trans(
-		Tween.TRANS_CUBIC
-	).set_ease(
-		Tween.EASE_IN_OUT
-	)
-
-	await camera_tween.finished
-
-	# Fade the screen to black.
+	# Make sure the transition overlay starts transparent.
 	transition_overlay.visible = true
 	transition_overlay.color = Color(0, 0, 0, 0)
 
-	var fade_tween := create_tween()
-
-	fade_tween.tween_property(
+	# Fade the screen to black.
+	var tween = create_tween()
+	tween.tween_property(
 		transition_overlay,
 		"color:a",
 		1.0,
-		0.4
+		1.0
 	)
 
-	await fade_tween.finished
+	# Wait until the fade finishes.
+	await tween.finished
 
-	# Begin Stage 2 with surviving players.
-	stage_complete.emit(
-		get_surviving_actions()
-	)
-	
+	# Switch to Stage 2 with the surviving players.
+	stage_complete.emit(get_surviving_actions())

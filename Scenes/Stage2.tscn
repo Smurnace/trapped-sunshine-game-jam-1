@@ -138,6 +138,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_eymn5")
+mash_per_press = 1.0
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=1240726749]
 layout_mode = 0
