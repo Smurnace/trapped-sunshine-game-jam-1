@@ -22,8 +22,6 @@ var countdown_remaining: float = 5.0
 
 @onready var camera: Camera2D = $Camera2D
 
-
-
 @onready var transition_overlay: ColorRect = \
 	$HUD/TransitionOverlay
 	
@@ -40,13 +38,10 @@ var game_state: GameState = GameState.WAITING
 
 var elapsed: float = 0.0
 
-
 # Timer for each lane
 var lane_spawn_elapsed: Array[float] = [0.0, 0.0, 0.0, 0.0]
 var finished: bool = false
 var eliminated_count: int = 0
-
-
 
 func _ready() -> void:
 	game_state = GameState.WAITING
@@ -79,7 +74,6 @@ func _on_player_eliminated() -> void:
 	if eliminated_count >= total_players and not finished:
 		finished = true
 		stage_failed.emit()
-
 
 func _process(delta: float) -> void:
 	if finished:
@@ -135,7 +129,7 @@ func spawn_fireball(lane_y: float, current_speed: float) -> void:
 	fireball.speed = current_speed
 	print("Spawned fireball at: ", fireball.global_position)
 	
-
+	
 func get_surviving_actions() -> Array[String]:
 	var actions: Array[String] = []
 
@@ -182,7 +176,6 @@ func update_countdown(delta: float) -> void:
 
 	if countdown_remaining <= 0.0:
 		start_game()
-
 
 func update_countdown_label() -> void:
 

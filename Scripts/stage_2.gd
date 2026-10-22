@@ -10,6 +10,9 @@ signal stage_lost
 @export var battle_time: float = 10.0
 @export var mash_per_press: float = 10.0
 
+#restart game
+@export var restart_delay: float = 4.0
+
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var timer_label: Label = $TimerLabel
 @onready var instruction_label: Label = $InstructionLabel
@@ -53,6 +56,9 @@ func _process(delta: float) -> void:
 		else:
 			result_label.text = "THE PARTY HAS FALLEN!"
 			stage_lost.emit()
+			
+		# Restart the game
+		auto_restart()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if finished:
@@ -69,9 +75,15 @@ func _unhandled_input(event: InputEvent) -> void:
 				finished = true
 				result_label.text = "THE DRAGON IS DEFEATED!"
 				stage_won.emit()
+				# Restart the game
+				auto_restart()
 
 			get_viewport().set_input_as_handled()
 			return
 			
 func set_surviving_players(actions: Array[String]) -> void:
 	mash_actions = actions
+	
+func auto_restart() -> void:
+	await get_tree().create_timer(restart_delay).timeout
+	get_tree().reload_current_scene()
