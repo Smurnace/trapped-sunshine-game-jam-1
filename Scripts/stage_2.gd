@@ -18,6 +18,7 @@ signal stage_lost
 @onready var instruction_label: Label = $InstructionLabel
 @onready var result_label: Label = $ResultLabel
 @onready var dragon: RigidBody2D = $Dragon
+@onready var claw_mark: Sprite2D = $ClawMark
 
 
 var elapsed: float = 0.0
@@ -57,7 +58,8 @@ func _process(delta: float) -> void:
 			stage_won.emit()
 		else:
 			dragon.attack()
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(1.0).timeout
+			claw_mark.show()
 			result_label.text = "THE PARTY HAS FALLEN!"
 			stage_lost.emit()
 			
