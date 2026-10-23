@@ -20,7 +20,7 @@ size = Vector2(701, 5)
 [node name="Stage1" type="Node2D" unique_id=98268360]
 script = ExtResource("1_ert0p")
 fireball_scene = ExtResource("3_plk55")
-survival_time = 20.0
+survival_time = 5.0
 speed_increase = 200.0
 countdown_duration = 10.0
 

@@ -37,7 +37,6 @@ func _ready() -> void:
 	
 	instruction_label.text = "MASH YOUR BUTTONS!"
 	result_label.text = ""
-	
 
 func _process(delta: float) -> void:
 	if finished:
@@ -53,17 +52,17 @@ func _process(delta: float) -> void:
 	if elapsed >= battle_time:
 		finished = true
 
-		if progress_bar.value <= 100.0:
+		if progress_bar.value <= 0.0:
 			result_label.text = "THE DRAGON IS DEFEATED!"
 			stage_won.emit()
 		else:
 			dragon.attack()
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(2.0).timeout
 			result_label.text = "THE PARTY HAS FALLEN!"
 			stage_lost.emit()
 			
 		# Restart the game
-		auto_restart()
+		#auto_restart()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if finished:
@@ -83,15 +82,14 @@ func _unhandled_input(event: InputEvent) -> void:
 				await get_tree().create_timer(1.0).timeout
 				result_label.text = "THE DRAGON IS DEFEATED!"
 				stage_won.emit()
-				# Restart the game
-				auto_restart()
+				
 
-			get_viewport().set_input_as_handled()
+			#get_viewport().set_input_as_handled()
 			return
 			
 func set_surviving_players(actions: Array[String]) -> void:
 	mash_actions = actions
 	
-func auto_restart() -> void:
-	await get_tree().create_timer(restart_delay).timeout
-	get_tree().reload_current_scene()
+#func auto_restart() -> void:
+	#await get_tree().create_timer(restart_delay).timeout
+	#get_tree().reload_current_scene()

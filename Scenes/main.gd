@@ -65,7 +65,8 @@ func start_stage2(surviving_actions: Array[String]) -> void:
 	
 func on_stage_2_won() -> void:
 	print("Players defeated the dragon!")
-	
+	#Restart from stage 1
+	start_stage1()
 func on_stage_2_lost() -> void:
 	print("Dragon has won")
 	
