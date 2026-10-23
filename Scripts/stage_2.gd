@@ -33,10 +33,11 @@ var mash_actions: Array[String] = [
 func _ready() -> void:
 	progress_bar.min_value = 0.0
 	progress_bar.max_value = 100.0
-	progress_bar.value = 0.0
-
+	progress_bar.value = 100.0
+	
 	instruction_label.text = "MASH YOUR BUTTONS!"
 	result_label.text = ""
+	
 
 func _process(delta: float) -> void:
 	if finished:
@@ -52,7 +53,7 @@ func _process(delta: float) -> void:
 	if elapsed >= battle_time:
 		finished = true
 
-		if progress_bar.value >= 100.0:
+		if progress_bar.value <= 100.0:
 			result_label.text = "THE DRAGON IS DEFEATED!"
 			stage_won.emit()
 		else:
@@ -71,12 +72,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	for action in mash_actions:
 		if event.is_action_pressed(action):
 			progress_bar.value = minf(
-				progress_bar.value + mash_per_press,
+				progress_bar.value - mash_per_press,
 				100.0
 			)
 			dragon.hurt()
 
-			if progress_bar.value >= 100.0 and not finished:
+			if progress_bar.value <= 0.0 and not finished:
 				finished = true
 				dragon.die()
 				await get_tree().create_timer(1.0).timeout

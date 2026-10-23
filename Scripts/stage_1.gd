@@ -11,7 +11,7 @@ signal stage_failed
 
 @export var lane_spawn_intervals: Array[float] = [1.8, 1.5, 1.3, 1.6]
 
-var lane_fireball_y: Array[float] = [100.0, 230.0, 360.0, 490.0]
+var lane_fireball_y: Array[float] = [190.0, 290.0, 390.0, 490.0]
 
 @onready var players: Node2D = $Players
 @onready var timer_label: Label = $HUD/TimerPanel/TimerLabel

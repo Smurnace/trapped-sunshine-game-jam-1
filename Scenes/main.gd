@@ -15,6 +15,7 @@ var current_stage: Node
 func _ready() -> void:
 	# Start stage 1 when the game opens
 	start_stage1()
+	
 
 func clear_stage() -> void:
 	if current_stage != null:

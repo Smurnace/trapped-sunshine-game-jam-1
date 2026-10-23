@@ -33,10 +33,11 @@ debug_color = Color(0, 0.6, 0.69803923, 0)
 libraries/ = SubResource("AnimationLibrary_kpjcp")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1665333974]
-offset_left = -25.0
-offset_top = -51.0
-offset_right = 25.0
-offset_bottom = -24.0
+offset_left = -24.0
+offset_top = -38.0
+offset_right = 26.0
+offset_bottom = -11.0
+scale = Vector2(1, 0.35999972)
 max_value = 3.0
 value = 3.0
 show_percentage = false

@@ -20,7 +20,7 @@ size = Vector2(701, 5)
 [node name="Stage1" type="Node2D" unique_id=98268360]
 script = ExtResource("1_ert0p")
 fireball_scene = ExtResource("3_plk55")
-survival_time = 5.0
+survival_time = 20.0
 speed_increase = 200.0
 countdown_duration = 10.0
 
@@ -33,18 +33,18 @@ texture = ExtResource("3_b22km")
 expand_mode = 1
 
 [node name="Cloud1" type="TextureRect" parent="." unique_id=1455297655]
-offset_left = 182.0
-offset_top = -82.0
-offset_right = 1206.0
-offset_bottom = 430.0
+offset_left = 232.0
+offset_top = -104.0
+offset_right = 1256.0
+offset_bottom = 408.0
 texture = ExtResource("4_ve6er")
 expand_mode = 1
 
 [node name="Cloud2" type="TextureRect" parent="." unique_id=916429777]
-offset_left = -391.0
-offset_top = -36.0
-offset_right = 633.0
-offset_bottom = 476.0
+offset_left = -352.0
+offset_top = -64.0
+offset_right = 672.0
+offset_bottom = 448.0
 texture = ExtResource("5_h4a3m")
 expand_mode = 1
 
@@ -52,6 +52,30 @@ expand_mode = 1
 offset_top = 300.0
 offset_right = 1025.0
 offset_bottom = 533.67316
+texture = ExtResource("3_o6145")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=402061908]
+offset_top = 296.0
+offset_right = 1025.0
+offset_bottom = 529.67316
+scale = Vector2(1, 0.5600006)
+texture = ExtResource("3_o6145")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1042006417]
+offset_top = 200.0
+offset_right = 1025.0
+offset_bottom = 433.67316
+scale = Vector2(1, 0.5600006)
+texture = ExtResource("3_o6145")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1442873721]
+offset_top = 96.0
+offset_right = 1025.0
+offset_bottom = 329.67316
+scale = Vector2(1, 0.5600006)
 texture = ExtResource("3_o6145")
 expand_mode = 1
 
@@ -81,31 +105,31 @@ offset_bottom = 282.0
 
 [node name="P1JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=1973676260]
 layout_mode = 0
-offset_left = -162.0
-offset_top = 199.0
-offset_right = -122.0
-offset_bottom = 222.0
+offset_left = -161.0
+offset_top = 197.0
+offset_right = -121.0
+offset_bottom = 220.0
 
 [node name="P2JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=1975103866]
 layout_mode = 0
-offset_left = -162.0
-offset_top = 59.0
-offset_right = -122.0
-offset_bottom = 82.0
+offset_left = -161.0
+offset_top = 93.0
+offset_right = -121.0
+offset_bottom = 116.0
 
 [node name="P3JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=1175868314]
 layout_mode = 0
-offset_left = -162.0
-offset_top = -52.0
-offset_right = -122.0
-offset_bottom = -29.0
+offset_left = -161.0
+offset_top = -3.0
+offset_right = -121.0
+offset_bottom = 20.0
 
 [node name="P4JoinLabel" type="Label" parent="HUD/JoinLabels" unique_id=2120530390]
 layout_mode = 0
-offset_left = -162.0
-offset_top = -195.0
-offset_right = -122.0
-offset_bottom = -172.0
+offset_left = -161.0
+offset_top = -115.0
+offset_right = -121.0
+offset_bottom = -92.0
 
 [node name="TransitionOverlay" type="ColorRect" parent="HUD" unique_id=1756036584]
 offset_right = 1024.0
@@ -120,19 +144,19 @@ gravity = 1300.0
 player_texture = ExtResource("5_h8ev4")
 
 [node name="Player2" parent="Players" unique_id=927311572 instance=ExtResource("2_plk55")]
-position = Vector2(71, 371)
+position = Vector2(72, 392)
 jump_action = "jump_p2"
 mash_action = "mash_p2"
 player_texture = ExtResource("6_nn7tr")
 
 [node name="Player3" parent="Players" unique_id=861841715 instance=ExtResource("2_plk55")]
-position = Vector2(71, 242)
+position = Vector2(72, 296)
 jump_action = "jump_p3"
 mash_action = "mash_p3"
 player_texture = ExtResource("7_nn7tr")
 
 [node name="Player4" parent="Players" unique_id=901888917 instance=ExtResource("2_plk55")]
-position = Vector2(71, 115)
+position = Vector2(72, 192)
 jump_action = "jump_p4"
 mash_action = "mash_p4"
 player_texture = ExtResource("8_wawdp")
@@ -143,23 +167,23 @@ position = Vector2(513, 259)
 [node name="Floor1" type="StaticBody2D" parent="." unique_id=188822895]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor1" unique_id=850866098]
-position = Vector2(351, 509)
+position = Vector2(352, 512)
 shape = SubResource("RectangleShape2D_o6145")
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=2142813311]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=1950469914]
-position = Vector2(351, 387)
+position = Vector2(352, 412)
 shape = SubResource("RectangleShape2D_o6145")
 
 [node name="Floor3" type="StaticBody2D" parent="." unique_id=579248043]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=810110477]
-position = Vector2(351, 259)
+position = Vector2(351, 312)
 shape = SubResource("RectangleShape2D_o6145")
 
 [node name="Floor4" type="StaticBody2D" parent="." unique_id=846742197]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4" unique_id=1377237858]
-position = Vector2(351, 131)
+position = Vector2(351, 212)
 shape = SubResource("RectangleShape2D_o6145")
