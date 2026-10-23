@@ -233,7 +233,7 @@ func update_gameplay(delta: float) -> void:
 		survival_time - elapsed
 	)
 
-	timer_label.text = "SURVIVE: %02d" % \
+	timer_label.text = "Dragon escapes: %02d" % \
 		ceili(remaining)
 
 	# Check whether the stage is complete.
