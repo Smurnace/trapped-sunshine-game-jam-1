@@ -26,6 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_y84ol"]
 resource_name = "Die"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
