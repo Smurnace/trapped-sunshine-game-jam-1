@@ -1,5 +1,6 @@
 extends CharacterBody2D
 signal eliminated
+signal player_downed
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
@@ -166,6 +167,7 @@ func enter_downed_state() -> void:
 		return
 
 	downed = true
+	player_downed.emit()
 	revive_progress = 0.0
 	
 	show_downed_message()
