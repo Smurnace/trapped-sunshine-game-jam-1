@@ -2,6 +2,92 @@
 
 [ext_resource type="Script" uid="uid://8w7rh06e71to" path="res://Scripts/player.gd" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://cggfeckudn50u" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint1.png" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://debsvlgxcb4jp" path="res://Assets/Player/P2_Blue/Blue_chara_Sprint1.png" id="2_oudfo"]
+[ext_resource type="Texture2D" uid="uid://c1wn018jfnj54" path="res://Assets/Player/P4_Green/Green_chara_Sprint1.png" id="2_tdg3f"]
+[ext_resource type="Texture2D" uid="uid://bhymtn567yp0w" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint2.png" id="3_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://cmf8bqlt7y6vx" path="res://Assets/Player/P2_Blue/Blue_chara_Sprint2.png" id="3_d6rpx"]
+[ext_resource type="Texture2D" uid="uid://df2bkry0a8m7h" path="res://Assets/Player/P4_Green/Green_chara_Sprint2.png" id="3_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://cb6ov8vgo010e" path="res://Assets/Player/P4_Green/Green_chara_Sprint3.png" id="4_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://cgb13qrbtvlj8" path="res://Assets/Player/P2_Blue/Blue_chara_Sprint3.png" id="4_r3kul"]
+[ext_resource type="Texture2D" uid="uid://b3p5jjsg3q4wu" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint3.png" id="4_tdg3f"]
+[ext_resource type="Texture2D" uid="uid://bwaerey5f7h7n" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint4.png" id="5_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://cufcwrir7u7k3" path="res://Assets/Player/P2_Blue/Blue_chara_Sprint4.png" id="5_jatw7"]
+[ext_resource type="Texture2D" uid="uid://cey8f1rf6tk3v" path="res://Assets/Player/P4_Green/Green_chara_Sprint4.png" id="5_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://dqwm3o4sw0w8d" path="res://Assets/Player/P3_Red/Red_chara_Sprint1.png" id="10_rv870"]
+[ext_resource type="Texture2D" uid="uid://caxfgv6u117i8" path="res://Assets/Player/P3_Red/Red_chara_Sprint2.png" id="11_efikj"]
+[ext_resource type="Texture2D" uid="uid://b3qok08n3icnp" path="res://Assets/Player/P3_Red/Red_chara_Sprint3.png" id="12_itxgx"]
+[ext_resource type="Texture2D" uid="uid://vbrrukauaryn" path="res://Assets/Player/P3_Red/Red_chara_Sprint4.png" id="13_cgsek"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxr5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oudfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d6rpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r3kul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jatw7")
+}],
+"loop": 1,
+"name": &"Blue_Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tdg3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dtqjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5ncpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wi0c6")
+}],
+"loop": 1,
+"name": &"Green_Run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_rv870")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_efikj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_itxgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cgsek")
+}],
+"loop": 1,
+"name": &"Red_Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpjcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cxr5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tdg3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dtqjt")
+}],
+"loop": 1,
+"name": &"Yellow_Run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
 size = Vector2(14, 25)
@@ -19,9 +105,16 @@ _data = {
 script = ExtResource("1_xhfnw")
 jump_strength = -300.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=575931782]
+position = Vector2(-13, -1.9999998)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_cxr5p")
+animation = &"Red_Run"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=935895130]
+visible = false
 position = Vector2(-9, -1.999999)
-scale = Vector2(0.13061523, 0.13061523)
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066024184]
@@ -34,9 +127,9 @@ libraries/ = SubResource("AnimationLibrary_kpjcp")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1665333974]
 offset_left = -24.0
-offset_top = -38.0
+offset_top = -39.0
 offset_right = 26.0
-offset_bottom = -11.0
+offset_bottom = -12.0
 scale = Vector2(1, 0.35999972)
 max_value = 3.0
 value = 3.0
@@ -45,9 +138,9 @@ show_percentage = false
 [node name="DownedLabel" type="Label" parent="." unique_id=290763896]
 visible = false
 offset_left = 16.0
-offset_top = -48.0
+offset_top = -44.0
 offset_right = 272.0
-offset_bottom = -25.0
+offset_bottom = -21.0
 theme_override_font_sizes/font_size = 14
 text = "Downed! Mash BUTTON to revive!"
 horizontal_alignment = 1

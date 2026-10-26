@@ -202,6 +202,8 @@ func start_game() -> void:
 	for player in players.get_children():
 		player.can_move = true
 		
+	$Background.scrolling_enabled = true
+		
 func update_join_labels() -> void:
 
 	var player_list = players.get_children()

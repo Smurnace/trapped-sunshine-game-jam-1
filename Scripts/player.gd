@@ -5,9 +5,11 @@ signal player_downed
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var downed_label: Label = $DownedLabel
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var jump_action: String = "jump_p1"
 @export var mash_action: String = "mash_p1"
+@export var run_animation: String = "red_run"
 
 @export var max_hp: int = 3
 @export var revive_per_press: float = 10
@@ -31,6 +33,7 @@ var invulnerable: bool = false
 var hit_tween: Tween
 
 func _ready() -> void:
+	$AnimatedSprite2D.play(run_animation)
 	var original_style = health_bar.get_theme_stylebox("fill")
 
 	if original_style is StyleBoxFlat:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://enasi4obub0k" path="res://Scripts/stage_1.gd" id="1_ert0p"]
 [ext_resource type="PackedScene" uid="uid://5pkq3yeene5a" path="res://Player.tscn" id="2_plk55"]
 [ext_resource type="Texture2D" uid="uid://c0y8ceg7b8wmr" path="res://Assets/Background/Seamless_sky.png" id="3_b22km"]
+[ext_resource type="Script" uid="uid://14gj52lslrvi" path="res://Scripts/background.gd" id="3_h4a3m"]
 [ext_resource type="Texture2D" uid="uid://6o5bhh7c7u8h" path="res://Assets/Background/parallax_ground_seamless.png" id="3_o6145"]
 [ext_resource type="PackedScene" uid="uid://dc3mva6apku27" path="res://Fireball.tscn" id="3_plk55"]
 [ext_resource type="Texture2D" uid="uid://roya0vuxvuya" path="res://Assets/Background/Cloud_1.png" id="4_ve6er"]
@@ -21,32 +22,34 @@ size = Vector2(701, 5)
 script = ExtResource("1_ert0p")
 fireball_scene = ExtResource("3_plk55")
 speed_increase = 250.0
-catch_progress_seconds = 20.0
+catch_progress_seconds = 5.0
 countdown_duration = 10.0
 
-[node name="BackGround" type="TextureRect" parent="." unique_id=527844473]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 1025.0
-offset_bottom = 513.0
+[node name="Background" type="Node2D" parent="." unique_id=1431689330]
+script = ExtResource("3_h4a3m")
+
+[node name="BackgroundParallax" type="Parallax2D" parent="Background" unique_id=1552252042]
+repeat_size = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BackgroundParallax" unique_id=1734698308]
 texture = ExtResource("3_b22km")
-expand_mode = 1
+centered = false
 
-[node name="Cloud1" type="TextureRect" parent="." unique_id=1455297655]
-offset_left = 232.0
-offset_top = -104.0
-offset_right = 1256.0
-offset_bottom = 408.0
+[node name="CloudParallax1" type="Parallax2D" parent="Background" unique_id=378304588]
+repeat_size = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/CloudParallax1" unique_id=1925486019]
+position = Vector2(-143, -68)
 texture = ExtResource("4_ve6er")
-expand_mode = 1
+centered = false
 
-[node name="Cloud2" type="TextureRect" parent="." unique_id=916429777]
-offset_left = -352.0
-offset_top = -64.0
-offset_right = 672.0
-offset_bottom = 448.0
+[node name="CloudParallax2" type="Parallax2D" parent="Background" unique_id=601491241]
+repeat_size = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/CloudParallax2" unique_id=1331483700]
+position = Vector2(139, 33)
 texture = ExtResource("5_h4a3m")
-expand_mode = 1
+centered = false
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1845033654]
 offset_top = 300.0
@@ -147,10 +150,10 @@ offset_right = 670.0
 offset_bottom = 99.0
 
 [node name="ResultLabel" type="Label" parent="HUD" unique_id=1300902466]
-offset_left = 435.0
-offset_top = 126.0
-offset_right = 621.0
-offset_bottom = 160.0
+offset_left = 376.0
+offset_top = 110.0
+offset_right = 696.0
+offset_bottom = 144.0
 theme_override_font_sizes/font_size = 24
 
 [node name="PanelContainer" type="PanelContainer" parent="HUD" unique_id=212904946]
@@ -167,30 +170,31 @@ text = "Chase after the dragon! QUICK!"
 [node name="Players" type="Node2D" parent="." unique_id=1751196179]
 
 [node name="Player1" parent="Players" unique_id=681076191 instance=ExtResource("2_plk55")]
-position = Vector2(71, 493)
+position = Vector2(71, 486)
+run_animation = "Green_Run"
 gravity = 1300.0
 player_texture = ExtResource("5_h8ev4")
 
 [node name="Player2" parent="Players" unique_id=927311572 instance=ExtResource("2_plk55")]
-position = Vector2(72, 392)
+position = Vector2(72, 386)
 jump_action = "jump_p2"
 mash_action = "mash_p2"
+run_animation = "Yellow_Run"
 player_texture = ExtResource("6_nn7tr")
 
 [node name="Player3" parent="Players" unique_id=861841715 instance=ExtResource("2_plk55")]
-position = Vector2(72, 296)
+position = Vector2(72, 288)
 jump_action = "jump_p3"
 mash_action = "mash_p3"
+run_animation = "Blue_Run"
 player_texture = ExtResource("7_nn7tr")
 
 [node name="Player4" parent="Players" unique_id=901888917 instance=ExtResource("2_plk55")]
-position = Vector2(72, 192)
+position = Vector2(72, 186)
 jump_action = "jump_p4"
 mash_action = "mash_p4"
+run_animation = "Red_Run"
 player_texture = ExtResource("8_wawdp")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=702929624]
-position = Vector2(513, 259)
 
 [node name="Floor1" type="StaticBody2D" parent="." unique_id=188822895]
 
