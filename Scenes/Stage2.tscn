@@ -104,28 +104,28 @@ text = "Players"
 
 [node name="Players" type="Node2D" parent="." unique_id=1739870049]
 
-[node name="Red" parent="Players" unique_id=681076191 instance=ExtResource("7_xumby")]
-unique_name_in_owner = true
-position = Vector2(387, 444)
-scale = Vector2(1.58, 1.58)
-
 [node name="Green" parent="Players" unique_id=1270155197 instance=ExtResource("7_xumby")]
 unique_name_in_owner = true
-position = Vector2(42, 450)
+position = Vector2(41, 450)
 scale = Vector2(1.5800002, 1.5800002)
 color = 1
 
+[node name="Yellow" parent="Players" unique_id=94855200 instance=ExtResource("7_xumby")]
+unique_name_in_owner = true
+position = Vector2(166, 450)
+scale = Vector2(1.58, 1.58)
+color = 2
+
 [node name="Blue" parent="Players" unique_id=1538681297 instance=ExtResource("7_xumby")]
 unique_name_in_owner = true
-position = Vector2(251.00003, 458)
+position = Vector2(291, 450)
 scale = Vector2(1.58, 1.58)
 color = 3
 
-[node name="Yellow" parent="Players" unique_id=94855200 instance=ExtResource("7_xumby")]
+[node name="Red" parent="Players" unique_id=681076191 instance=ExtResource("7_xumby")]
 unique_name_in_owner = true
-position = Vector2(193, 458.99997)
+position = Vector2(416, 450)
 scale = Vector2(1.58, 1.58)
-color = 2
 
 [node name="ClawMark" type="Sprite2D" parent="." unique_id=257785729]
 visible = false
