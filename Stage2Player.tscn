@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://d02nn4qieere5"]
+
+[ext_resource type="Script" uid="uid://c3hg8qmv3fjls" path="res://Scripts/stage2player.gd" id="1_p8yfd"]
+[ext_resource type="Texture2D" uid="uid://cswt3pr1nek1t" path="res://Assets/Player/P3_Red/Red_chara_Slash2.png" id="2_p8yfd"]
+[ext_resource type="Texture2D" uid="uid://cky5rgbgl5rgm" path="res://Assets/Player/P3_Red/Red_chara_Slash1.png" id="3_vubiv"]
+[ext_resource type="Texture2D" uid="uid://cb85awrg2opdh" path="res://Assets/Player/P4_Green/Green_chara_Slash2.png" id="4_vk6us"]
+[ext_resource type="Texture2D" uid="uid://sx7qhmffkr86" path="res://Assets/Player/P4_Green/Green_chara_Slash1.png" id="5_ijhpu"]
+[ext_resource type="Texture2D" uid="uid://cggfeckudn50u" path="res://Assets/Player/P1_Yellow/Yellow_chara_Sprint1.png" id="14_2sbwm"]
+[ext_resource type="Texture2D" uid="uid://dbx8tlp4y0t04" path="res://Assets/Player/P1_Yellow/Yellow_chara_Slash2.png" id="18_gdkus"]
+[ext_resource type="Texture2D" uid="uid://cn028nixj14yt" path="res://Assets/Player/P2_Blue/Blue_chara_Slash2.png" id="18_s1wce"]
+[ext_resource type="Texture2D" uid="uid://c5e5tlpuel80l" path="res://Assets/Player/P2_Blue/Blue_chara_Slash1.png" id="19_duqe8"]
+[ext_resource type="Texture2D" uid="uid://b5iblpyebts1k" path="res://Assets/Player/P1_Yellow/Yellow_chara_Slash1.png" id="19_rho4o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1wce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_gdkus")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_rho4o")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhxb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vk6us")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ijhpu")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lyxp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p8yfd")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vubiv")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngrls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_s1wce")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_duqe8")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_6vvna"]
+resource_name = "Attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_duqe8"]
+_data = {
+&"Attack": SubResource("Animation_6vvna")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
+size = Vector2(14, 25)
+
+[node name="Player" type="CharacterBody2D" unique_id=681076191]
+script = ExtResource("1_p8yfd")
+jump_strength = -300.0
+
+[node name="Yellow" type="AnimatedSprite2D" parent="." unique_id=275800819]
+unique_name_in_owner = true
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_s1wce")
+animation = &"Idle"
+
+[node name="Green" type="AnimatedSprite2D" parent="." unique_id=805779066]
+unique_name_in_owner = true
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_rhxb8")
+animation = &"Idle"
+
+[node name="Red" type="AnimatedSprite2D" parent="." unique_id=491663631]
+unique_name_in_owner = true
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_lyxp2")
+animation = &"Idle"
+
+[node name="Blue" type="AnimatedSprite2D" parent="." unique_id=385789318]
+unique_name_in_owner = true
+position = Vector2(30, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ngrls")
+animation = &"Idle"
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="." unique_id=1409062087]
+libraries/ = SubResource("AnimationLibrary_duqe8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935895130]
+visible = false
+position = Vector2(-9, -1.999999)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("14_2sbwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066024184]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_kne1u")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1665333974]
+visible = false
+offset_left = -24.0
+offset_top = -39.0
+offset_right = 26.0
+offset_bottom = -12.0
+scale = Vector2(1, 0.35999972)
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
+[node name="DownedLabel" type="Label" parent="." unique_id=290763896]
+visible = false
+offset_left = 16.0
+offset_top = -44.0
+offset_right = 272.0
+offset_bottom = -21.0
+theme_override_font_sizes/font_size = 14
+text = "Downed! Mash BUTTON to revive!"
+horizontal_alignment = 1

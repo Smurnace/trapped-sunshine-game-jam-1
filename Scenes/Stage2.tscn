@@ -6,94 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://roya0vuxvuya" path="res://Assets/Background/Cloud_1.png" id="4_ouruc"]
 [ext_resource type="Texture2D" uid="uid://dai1pliqfispd" path="res://Assets/Background/parallax_ground_scorched_seamless.png" id="5_3cdj1"]
 [ext_resource type="PackedScene" uid="uid://b31i6uu0fc88c" path="res://Scenes/dragon.tscn" id="6_g3fr0"]
-[ext_resource type="PackedScene" uid="uid://5pkq3yeene5a" path="res://Player.tscn" id="7_xumby"]
-[ext_resource type="Texture2D" uid="uid://dbx8tlp4y0t04" path="res://Assets/Player/P1_Yellow/Yellow_chara_Slash2.png" id="11_f05v4"]
-[ext_resource type="Texture2D" uid="uid://b5iblpyebts1k" path="res://Assets/Player/P1_Yellow/Yellow_chara_Slash1.png" id="12_n6yw1"]
-[ext_resource type="Texture2D" uid="uid://cn028nixj14yt" path="res://Assets/Player/P2_Blue/Blue_chara_Slash2.png" id="13_ujsqn"]
-[ext_resource type="Texture2D" uid="uid://c5e5tlpuel80l" path="res://Assets/Player/P2_Blue/Blue_chara_Slash1.png" id="14_c5op1"]
-[ext_resource type="Texture2D" uid="uid://cswt3pr1nek1t" path="res://Assets/Player/P3_Red/Red_chara_Slash2.png" id="15_vtq4t"]
+[ext_resource type="PackedScene" uid="uid://d02nn4qieere5" path="res://Stage2Player.tscn" id="7_xumby"]
 [ext_resource type="Texture2D" uid="uid://cb5fs6hk7m10h" path="res://Assets/Dragon/Claw Mark.png" id="16_6vvna"]
-[ext_resource type="Texture2D" uid="uid://cky5rgbgl5rgm" path="res://Assets/Player/P3_Red/Red_chara_Slash1.png" id="16_c5a8g"]
-[ext_resource type="Texture2D" uid="uid://cb85awrg2opdh" path="res://Assets/Player/P4_Green/Green_chara_Slash2.png" id="17_glq4p"]
-[ext_resource type="Texture2D" uid="uid://sx7qhmffkr86" path="res://Assets/Player/P4_Green/Green_chara_Slash1.png" id="18_yb6b7"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_pbw6q"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yn8ur"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_f05v4")
-}],
-"loop": 1,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_n6yw1")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3yxnq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_ujsqn")
-}],
-"loop": 1,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_c5op1")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gbbk2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_vtq4t")
-}],
-"loop": 1,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_c5a8g")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_15hl4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_glq4p")
-}],
-"loop": 1,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_yb6b7")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}]
 
 [node name="Stage2" type="Control" unique_id=1767944747]
 layout_mode = 3
@@ -178,7 +94,7 @@ offset_bottom = 416.51855
 scale = Vector2(4.080001, 2.1599975)
 texture = SubResource("DrawableTexture2D_pbw6q")
 
-[node name="PlayersText" type="TextEdit" parent="." unique_id=1960373188]
+[node name="PlayersText" type="Label" parent="." unique_id=1263094129]
 layout_mode = 0
 offset_left = 88.0
 offset_top = 293.45
@@ -188,53 +104,28 @@ text = "Players"
 
 [node name="Players" type="Node2D" parent="." unique_id=1739870049]
 
-[node name="Player1" parent="Players" unique_id=681076191 instance=ExtResource("7_xumby")]
-position = Vector2(400, 475.5)
+[node name="Red" parent="Players" unique_id=681076191 instance=ExtResource("7_xumby")]
+unique_name_in_owner = true
+position = Vector2(387, 444)
 scale = Vector2(1.58, 1.58)
-script = null
-metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player1" unique_id=1120980077]
-position = Vector2(30, -30)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_yn8ur")
-animation = &"Idle"
+[node name="Green" parent="Players" unique_id=1270155197 instance=ExtResource("7_xumby")]
+unique_name_in_owner = true
+position = Vector2(42, 450)
+scale = Vector2(1.5800002, 1.5800002)
+color = 1
 
-[node name="Player2" parent="Players" unique_id=476913854 instance=ExtResource("7_xumby")]
-position = Vector2(280, 475.5)
+[node name="Blue" parent="Players" unique_id=1538681297 instance=ExtResource("7_xumby")]
+unique_name_in_owner = true
+position = Vector2(251.00003, 458)
 scale = Vector2(1.58, 1.58)
-script = null
-metadata/_edit_group_ = true
+color = 3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player2" unique_id=685103698]
-position = Vector2(30, -30)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_3yxnq")
-animation = &"Idle"
-
-[node name="Player3" parent="Players" unique_id=1805106433 instance=ExtResource("7_xumby")]
-position = Vector2(160, 475.5)
+[node name="Yellow" parent="Players" unique_id=94855200 instance=ExtResource("7_xumby")]
+unique_name_in_owner = true
+position = Vector2(193, 458.99997)
 scale = Vector2(1.58, 1.58)
-script = null
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player3" unique_id=640344077]
-position = Vector2(30, -30)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_gbbk2")
-animation = &"Idle"
-
-[node name="Player4" parent="Players" unique_id=273219499 instance=ExtResource("7_xumby")]
-position = Vector2(40, 475.5)
-scale = Vector2(1.58, 1.58)
-script = null
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Players/Player4" unique_id=868096200]
-position = Vector2(30, -30)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_15hl4")
-animation = &"Idle"
+color = 2
 
 [node name="ClawMark" type="Sprite2D" parent="." unique_id=257785729]
 visible = false

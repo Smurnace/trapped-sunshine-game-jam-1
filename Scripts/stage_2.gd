@@ -19,7 +19,10 @@ signal stage_lost
 @onready var result_label: Label = $ResultLabel
 @onready var dragon: RigidBody2D = $Dragon
 @onready var claw_mark: Sprite2D = $ClawMark
-
+@onready var player_1: Stage2Player = %Green
+@onready var player_2: Stage2Player = %Yellow
+@onready var player_3: Stage2Player = %Blue
+@onready var player_4: Stage2Player = %Red
 
 var elapsed: float = 0.0
 var finished: bool = false
@@ -72,6 +75,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	for action in mash_actions:
 		if event.is_action_pressed(action):
+			match action:
+				"mash_p1":
+					player_1.attack()
+				"mash_p2":
+					player_2.attack()
+				"mash_p3":
+					player_3.attack()
+				"mash_p4":
+					player_4.attack()
 			progress_bar.value = minf(
 				progress_bar.value - mash_per_press,
 				100.0
