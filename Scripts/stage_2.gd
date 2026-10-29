@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			stage_won.emit()
 		else:
 			dragon.attack()
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(0.2).timeout
 			claw_mark.show()
 			result_label.text = "THE PARTY HAS FALLEN!"
 			stage_lost.emit()
